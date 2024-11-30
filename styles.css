@@ -3,7 +3,7 @@ body {
 }
 
 #desktop {
-    background-color: yellow;
+    background-color: #F8F0C6;
     height: 90vh;
     width: 100%;
 }
@@ -11,8 +11,8 @@ body {
 #window {
     background-color: #33B3A6;
     position: absolute;
-    height: 75px;
-    width: 150px;
+    height: 25px;
+    width: 400px;
 }
 
 #dock {
@@ -38,7 +38,7 @@ body {
 
 #dock-base {
     height: 50%;
-    background-color: blue;
+    background-color: #a0d9ef;
     clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
 }
 

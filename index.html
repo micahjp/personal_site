@@ -10,14 +10,27 @@
     <body>
         <div id="base-display">
             <section id="desktop" class="fixed">
-                <div id="window"></div>
+                <div id="computerDisplay">
+                    <div id="window">
+                        <button id="windowButton" data-target="computerDisplay">
+                        </button>
+                    </div>
+                </div>
             </section>
             <nav id="dock" class="fixed">
                 <div id="applications" class="dock_width">
-                    <img id="computer_icon" class="icon" src="images/computer_icon.png" onclick=""/>
-                    <img id="document_icon" class="icon" src="images/document_icon.png" onclick=""/>
-                    <img id="folder_icon" class="icon" src="images/folder_icon.png" onclick=""/>
-                    <img id="globe_icon" class="icon" src="images/globe_icon.png" onclick=""/>
+                    <button class="toggleDisplay" data-target="computerDisplay">
+                        <img id="computerIcon" class="icon" src="images/computer_icon.png"/>
+                    </button>
+                    <button class="toggleDisplay" data-target="documentDisplay">
+                        <img id="documentIcon" class="icon" src="images/document_icon.png"/>
+                    </button>
+                    <button class="toggleDisplay" data-target="folderDisplay">
+                        <img id="folderIcon" class="icon" src="images/folder_icon.png"/>
+                    </button>
+                    <button class="toggleDisplay" data-target="globeDisplay">
+                        <img id="globeIcon" class="icon" src="images/globe_icon.png"/>
+                    </button>
                 </div>
                 <div id="dock-base" class="dock_width"></div>
             </nav>

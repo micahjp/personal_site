@@ -1,3 +1,5 @@
+document.getElementById("window").addEventListener("mousedown", start_drag);
+
 function start_drag(mousedownEvent) {
     const windowElement = document.getElementById("window")
 
@@ -9,11 +11,25 @@ function start_drag(mousedownEvent) {
     function on_mousemove(mousemoveEvent) {
         const x = mousemoveEvent.clientX - click_x;
         const y = mousemoveEvent.clientY - click_y;
+        const new_left = x + start_x;
+        const new_top = y + start_y;
 
-        console.log(`x position = ${x} | y position = ${y}`);
+        console.log(`window iw = ${window.innerWidth} | window_x = ${new_left + windowElement.clientWidth}`)
+        if (new_left >= 0 && new_left + windowElement.clientWidth < window.innerWidth) {
+            windowElement.style.left = `${new_left}px`;
+        } else {
+            if (new_left < 0) {
+                windowElement.style.left = 0;
+            } else {
+                windowElement.style.left = `${window.innerWidth - windowElement.clientWidth}px`;
+            }
+        }
 
-        windowElement.style.left = `${x + start_x}px`;
-        windowElement.style.top = `${y + start_y}px`;
+        if (new_top >= 0 && new_top  + windowElement.clientHeight < window.innerHeight - document.getElementById("dock").clientHeight) {
+            windowElement.style.top = `${new_top}px`;
+        } else {
+            windowElement.style.top = 0 > new_top ? 0 : `${window.innerHeight - windowElement.clientHeight - document.getElementById("dock").clientHeight}px`;
+        }
     }
 
     function end_drag() {
@@ -25,4 +41,18 @@ function start_drag(mousedownEvent) {
     document.addEventListener("mouseup", end_drag);
 }
 
-document.getElementById("window").addEventListener("mousedown", start_drag);
+const buttons = document.querySelectorAll(".toggleDisplay");
+buttons.forEach(button => {
+    button.addEventListener("click", show_element);
+});
+
+function show_element(event) {
+    console.log(event.currentTarget.dataset.target);
+    document.getElementById(event.currentTarget.dataset.target).style.display = "unset";
+}
+
+
+document.getElementById("windowButton").addEventListener("click", do_action);
+function do_action(event) {
+    document.getElementById(event.currentTarget.dataset.target).style.display = "none";
+}

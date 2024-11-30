@@ -8,6 +8,13 @@ body {
     width: 100%;
 }
 
+#window {
+    background-color: #33B3A6;
+    position: absolute;
+    height: 75px;
+    width: 150px;
+}
+
 #dock {
     display: flex;
     flex-direction: column;

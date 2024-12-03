@@ -1,7 +1,11 @@
-document.getElementById("window").addEventListener("mousedown", start_drag);
+document.querySelectorAll("header.titleBar").forEach((header)=>{
+    header.addEventListener("mousedown", start_drag);
+});
 
 function start_drag(mousedownEvent) {
-    const windowElement = document.getElementById("window")
+    const windowElement = document.getElementById(mousedownEvent.target.id)
+
+    windowElement.style.zIndex++; // need a way to find the highest z-index or to lower all other z-index
 
     const click_x = mousedownEvent.clientX;
     const click_y = mousedownEvent.clientY;
@@ -52,7 +56,11 @@ function show_element(event) {
 }
 
 
-document.getElementById("windowButton").addEventListener("click", do_action);
+document.querySelectorAll("button.close").forEach((button) => {
+    button.addEventListener("click", do_action);
+});
+
 function do_action(event) {
     document.getElementById(event.currentTarget.dataset.target).style.display = "none";
 }
+

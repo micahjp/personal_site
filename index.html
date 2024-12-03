@@ -10,11 +10,17 @@
     <body>
         <div id="base-display">
             <section id="desktop" class="fixed">
-                <div id="computerDisplay">
-                    <div id="window">
-                        <button id="windowButton" data-target="computerDisplay">
+                <div id="computerDisplay" class="window">
+                    <header id="computerTitleBar" class="titleBar">
+                        <button id="windowButton" class="close" data-target="computerDisplay">
                         </button>
-                    </div>
+                    </header>
+                </div>
+                <div id="documentDisplay" class="window">
+                    <header id="documentTitleBar" class="titleBar">
+                        <button id="windowButton" class="close" data-target="documentDisplay">
+                        </button>
+                    </header>
                 </div>
             </section>
             <nav id="dock" class="fixed">

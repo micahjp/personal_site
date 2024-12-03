@@ -1,10 +1,7 @@
-document.querySelectorAll("header.titleBar").forEach((header)=>{
-    header.addEventListener("mousedown", start_drag);
-});
-
-function start_drag(mousedownEvent) {
+function startWindowDrag(mousedownEvent) {
     const windowElement = document.getElementById(mousedownEvent.target.id)
 
+    // bring clicked window to front
     windowElement.style.zIndex++; // need a way to find the highest z-index or to lower all other z-index
 
     const click_x = mousedownEvent.clientX;
@@ -12,7 +9,7 @@ function start_drag(mousedownEvent) {
     const start_x = parseInt(windowElement.style.left || 0, 10);
     const start_y = parseInt(windowElement.style.top || 0, 10);
 
-    function on_mousemove(mousemoveEvent) {
+    function dragWindow(mousemoveEvent) {
         const x = mousemoveEvent.clientX - click_x;
         const y = mousemoveEvent.clientY - click_y;
         const new_left = x + start_x;
@@ -36,30 +33,17 @@ function start_drag(mousedownEvent) {
         }
     }
 
-    function end_drag() {
-        document.removeEventListener("mousemove", on_mousemove);
-        document.removeEventListener("mouseup", end_drag);
+    function stopWindowDrag() {
+        document.removeEventListener("mousemove", dragWindow);
+        document.removeEventListener("mouseup", stopWindowDrag);
     }
 
-    document.addEventListener("mousemove", on_mousemove);
-    document.addEventListener("mouseup", end_drag);
-}
-
-document.querySelectorAll(".toggleDisplay").forEach(button => {
-    button.addEventListener("click", show_element);
-});
-
-function show_element(event) {
-    console.log(event.currentTarget.dataset.target);
-    document.getElementById(event.currentTarget.dataset.target).style.display = "unset";
+    document.addEventListener("mousemove", dragWindow);
+    document.addEventListener("mouseup", stopWindowDrag);
 }
 
 
-document.querySelectorAll("button.close").forEach((button) => {
-    button.addEventListener("click", do_action);
-});
-
-function do_action(event) {
+function hideWindow(event) {
     document.getElementById(event.currentTarget.dataset.target).style.display = "none";
 }
 

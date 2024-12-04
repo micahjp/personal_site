@@ -3,38 +3,47 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="styles.css"/>
-        <script src="index.js" defer></script>
+        <link rel="stylesheet" href="css/stylesById.css"/>
+        <link rel="stylesheet" href="css/stylesByClass.css"/>
+        <script type="module" src="js/global.js" defer></script>
         <title>Micah Pope</title>
     </head>
     <body>
         <div id="base-display">
             <section id="desktop" class="fixed">
-                <div id="computerDisplay" class="window">
-                    <header id="computerTitleBar" class="titleBar">
-                        <button id="windowButton" class="close" data-target="computerDisplay">
+                <div id="computerWindow" class="window">
+                    <header id="computerTitleBar" class="titleBar grab" data-target="computerWindow">
+                        <button id="computerCloseButton" class="hide" data-target="computerWindow">
+                            &times;
+                        </button>
+                        <button id="computerMaxButton" class="maximize" data-target="computerWindow">
+                            &#9642;
                         </button>
                     </header>
                 </div>
-                <div id="documentDisplay" class="window">
-                    <header id="documentTitleBar" class="titleBar">
-                        <button id="windowButton" class="close" data-target="documentDisplay">
+                <div id="documentWindow" class="window">
+                    <header id="documentTitleBar" class="titleBar grab" data-target="documentWindow">
+                        <button id="documentCloseButton" class="hide" data-target="documentWindow">
+                            &times;
+                        </button>
+                        <button id="documentMaxButton" class="maximize" data-target="documentWindow">
+                            &#9642;
                         </button>
                     </header>
                 </div>
             </section>
             <nav id="dock" class="fixed">
                 <div id="applications" class="dock_width">
-                    <button class="toggleDisplay" data-target="computerDisplay">
+                    <button class="show" data-target="computerWindow">
                         <img id="computerIcon" class="icon" src="images/computer_icon.png"/>
                     </button>
-                    <button class="toggleDisplay" data-target="documentDisplay">
+                    <button class="show" data-target="documentWindow">
                         <img id="documentIcon" class="icon" src="images/document_icon.png"/>
                     </button>
-                    <button class="toggleDisplay" data-target="folderDisplay">
+                    <button class="show" data-target="folderDisplay">
                         <img id="folderIcon" class="icon" src="images/folder_icon.png"/>
                     </button>
-                    <button class="toggleDisplay" data-target="globeDisplay">
+                    <button class="show" data-target="globeDisplay">
                         <img id="globeIcon" class="icon" src="images/globe_icon.png"/>
                     </button>
                 </div>

@@ -1,8 +1,17 @@
-function startWindowDrag(mousedownEvent) {
-    const windowElement = document.getElementById(mousedownEvent.target.id)
+export function startWindowDrag(mousedownEvent) {
+    console.log(mousedownEvent.currentTarget.dataset.target)
+    const windowElement = document.getElementById(mousedownEvent.currentTarget.dataset.target)
+    const titleBar = document.getElementById(mousedownEvent.target.id);
+
+    // cursor
+    titleBar.classList.remove("grab");
+    titleBar.classList.add("grabbing");
 
     // bring clicked window to front
-    windowElement.style.zIndex++; // need a way to find the highest z-index or to lower all other z-index
+    document.querySelectorAll("div.window").forEach((win) => {
+        win.style.zIndex = 1;
+    });
+    windowElement.style.zIndex++;
 
     const click_x = mousedownEvent.clientX;
     const click_y = mousedownEvent.clientY;
@@ -19,11 +28,7 @@ function startWindowDrag(mousedownEvent) {
         if (new_left >= 0 && new_left + windowElement.clientWidth < window.innerWidth) {
             windowElement.style.left = `${new_left}px`;
         } else {
-            if (new_left < 0) {
-                windowElement.style.left = 0;
-            } else {
-                windowElement.style.left = `${window.innerWidth - windowElement.clientWidth}px`;
-            }
+            windowElement.style.left = 0 > new_left ? 0 : `${window.innerWidth - windowElement.clientWidth}px`;
         }
 
         if (new_top >= 0 && new_top  + windowElement.clientHeight < window.innerHeight - document.getElementById("dock").clientHeight) {
@@ -34,6 +39,9 @@ function startWindowDrag(mousedownEvent) {
     }
 
     function stopWindowDrag() {
+        // cursor
+        titleBar.classList.add("grab");
+        titleBar.classList.remove("grabbing");
         document.removeEventListener("mousemove", dragWindow);
         document.removeEventListener("mouseup", stopWindowDrag);
     }
@@ -43,7 +51,16 @@ function startWindowDrag(mousedownEvent) {
 }
 
 
-function hideWindow(event) {
+export function hideWindow(event) {
     document.getElementById(event.currentTarget.dataset.target).style.display = "none";
 }
 
+
+export function showWindow(event) {
+    console.log(event.currentTarget.dataset.target);
+    document.getElementById(event.currentTarget.dataset.target).style.display = "unset";
+}
+
+export function maximizeWindow(event) {
+    
+}

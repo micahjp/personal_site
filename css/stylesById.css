@@ -8,22 +8,6 @@ body {
     width: 100%;
 }
 
-#documentTitleBar {
-    background-color: #3ff3A6;
-    position: absolute;
-    z-index: 1;
-    height: 25px;
-    width: 100%;
-}
-
-#computerTitleBar {
-    background-color: #33B3A6;
-    position: absolute;
-    z-index: 1;
-    height: 25px;
-    width: 100%;
-}
-
 #dock {
     display: flex;
     flex-direction: column;

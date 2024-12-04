@@ -1,0 +1,52 @@
+.window {
+    background-color: white;
+    position: absolute;
+    height: 500px;
+    width: 400px;
+    z-index: 1;
+}
+
+.dock_width {
+    width: min(70%, 450px);
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.titleBar {
+    background-color: #3ff3A6;
+    font-size: 20px;
+    height: 25px;
+    width: 100%;
+}
+
+.hide {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    padding: none;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.maximize {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    padding: none;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.grab {
+    cursor: grab;
+}
+
+.grabbing {
+    cursor: grabbing;
+}

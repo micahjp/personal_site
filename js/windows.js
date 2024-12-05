@@ -1,7 +1,21 @@
 export function startWindowDrag(mousedownEvent) {
-    console.log(mousedownEvent.currentTarget.dataset.target)
-    const windowElement = document.getElementById(mousedownEvent.currentTarget.dataset.target)
-    const titleBar = document.getElementById(mousedownEvent.target.id);
+    console.log(mousedownEvent.target);
+    mousedownEvent.preventDefault();
+
+    let windowElement;
+    let titleBar;
+
+    if (mousedownEvent.target.tagName !== "HEADER") {
+        if (mousedownEvent.target.parentElement.tagName === "HEADER") {
+            windowElement = document.getElementById(mousedownEvent.target.parentElement.dataset.target);
+            titleBar = document.getElementById(mousedownEvent.target.parentElement.id);
+        } else {
+            throw new Error("Unable to find Title Bar");
+        }
+    } else {
+        windowElement = document.getElementById(mousedownEvent.currentTarget.dataset.target);
+        titleBar = document.getElementById(mousedownEvent.target.id);
+    }
 
     // cursor
     titleBar.classList.remove("grab");
@@ -24,7 +38,6 @@ export function startWindowDrag(mousedownEvent) {
         const new_left = x + start_x;
         const new_top = y + start_y;
 
-        console.log(`window iw = ${window.innerWidth} | window_x = ${new_left + windowElement.clientWidth}`)
         if (new_left >= 0 && new_left + windowElement.clientWidth < window.innerWidth) {
             windowElement.style.left = `${new_left}px`;
         } else {
@@ -57,7 +70,6 @@ export function hideWindow(event) {
 
 
 export function showWindow(event) {
-    console.log(event.currentTarget.dataset.target);
     document.getElementById(event.currentTarget.dataset.target).style.display = "unset";
 }
 

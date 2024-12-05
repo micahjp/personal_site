@@ -7,13 +7,17 @@
         <link rel="stylesheet" href="css/stylesByClass.css"/>
         <script type="module" src="js/global.js" defer></script>
         <title>Micah Pope</title>
+        <script>
+            /*to prevent Firefox FOUC, this must be here*/
+            let FF_FOUC_FIX;
+        </script>
     </head>
     <body>
         <div id="base-display">
             <section id="desktop" class="fixed">
                 <div id="computerWindow" class="window">
                     <header id="computerTitleBar" class="titleBar grab" data-target="computerWindow">
-                        <span></span>
+                        <span class="titleBarSpacer"></span>
                         <h6 class="windowTitle">
                             COMPUTER PROGRAM
                         </h6>
@@ -28,9 +32,9 @@
                 </div>
                 <div id="documentWindow" class="window">
                     <header id="documentTitleBar" class="titleBar grab" data-target="documentWindow">
-                        <span></span>
+                        <span class="titleBarSpacer"></span>
                         <h6 class="windowTitle">
-                            DOCUMENT PROGRAM
+                            About_Me.txt
                         </h6>
                         <span class="windowButtonCluster">
                             <button id="documentCloseButton" class="hide" data-target="documentWindow">
@@ -40,6 +44,17 @@
                             </button>
                         </span>
                     </header>
+                    <div class="documentBody">
+                        <h3>
+                            About Me
+                        </h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et hendrerit sapien, id venenatis velit. Duis bibendum urna sed pretium sagittis. Nullam dapibus tellus quis venenatis cursus. Cras posuere, orci eu aliquet accumsan, mauris justo aliquet felis, et vestibulum leo dui eget felis. Vivamus congue congue nibh vitae lacinia. Vivamus dolor erat, sodales rhoncus vestibulum eget, pulvinar at diam. Aliquam et risus mauris. Sed eleifend gravida sapien at egestas. Ut nisi felis, viverra vel ipsum ut, venenatis vehicula enim. Fusce tincidunt sed massa eget pulvinar. Morbi rutrum ornare consectetur.
+                        </p>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et hendrerit sapien, id venenatis velit. Duis bibendum urna sed pretium sagittis. Nullam dapibus tellus quis venenatis cursus. Cras posuere, orci eu aliquet accumsan, mauris justo aliquet felis, et vestibulum leo dui eget felis. Vivamus congue congue nibh vitae lacinia. Vivamus dolor erat, sodales rhoncus vestibulum eget, pulvinar at diam. Aliquam et risus mauris. Sed eleifend gravida sapien at egestas. Ut nisi felis, viverra vel ipsum ut, venenatis vehicula enim. Fusce tincidunt sed massa eget pulvinar. Morbi rutrum ornare consectetur.
+                        </p>
+                    </div>
                 </div>
             </section>
             <nav id="dock" class="fixed">

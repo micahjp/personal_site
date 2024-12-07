@@ -44,10 +44,10 @@ export function startWindowDrag(mousedownEvent) {
             windowElement.style.left = 0 > new_left ? 0 : `${window.innerWidth - windowElement.clientWidth}px`;
         }
 
-        if (new_top >= 0 && new_top  + windowElement.clientHeight < window.innerHeight - document.getElementById("dock").offsetHeight) {
+        if (new_top >= 40 && new_top + windowElement.clientHeight < window.innerHeight - document.getElementById("dock").offsetHeight) {
             windowElement.style.top = `${new_top}px`;
         } else {
-            windowElement.style.top = 0 > new_top ? 0 : `${window.innerHeight - windowElement.clientHeight - document.getElementById("dock").offsetHeight}px`;
+            windowElement.style.top = 40 > new_top ? `40px` : `${window.innerHeight - windowElement.clientHeight - document.getElementById("dock").offsetHeight}px`;
         }
     }
 

@@ -14,12 +14,13 @@
     </head>
     <body>
         <div id="base-display">
+            <header id="statusBar"></header>
             <section id="desktop" class="fixed">
                 <div id="computerWindow" class="window">
                     <header id="computerTitleBar" class="titleBar grab" data-target="computerWindow">
                         <span class="titleBarSpacer"></span>
                         <h6 class="windowTitle">
-                            COMPUTER PROGRAM
+                            Projects
                         </h6>
                         <span class="windowButtonCluster">
                             <button id="computerCloseButton" class="hide" data-target="computerWindow">
@@ -34,7 +35,7 @@
                     <header id="documentTitleBar" class="titleBar grab" data-target="documentWindow">
                         <span class="titleBarSpacer"></span>
                         <h6 class="windowTitle">
-                            About_Me.txt
+                            About Me
                         </h6>
                         <span class="windowButtonCluster">
                             <button id="documentCloseButton" class="hide" data-target="documentWindow">
@@ -58,21 +59,22 @@
                 </div>
             </section>
             <nav id="dock" class="fixed">
-                <div id="applications" class="dock_width">
-                    <button class="show" data-target="computerWindow">
-                        <img id="computerIcon" class="icon" src="images/computer_icon.png"/>
-                    </button>
-                    <button class="show" data-target="documentWindow">
-                        <img id="documentIcon" class="icon" src="images/document_icon.png"/>
-                    </button>
-                    <button class="show" data-target="folderDisplay">
-                        <img id="folderIcon" class="icon" src="images/folder_icon.png"/>
-                    </button>
-                    <button class="show" data-target="globeDisplay">
-                        <img id="globeIcon" class="icon" src="images/globe_icon.png"/>
-                    </button>
-                </div>
-                <div id="dock-base" class="dock_width"></div>
+                <button id="computerButton" class="show dockIconButton" data-target="computerWindow">
+                    <img id="computerIcon" class="dockIconImage" src="images/computer_icon.png"/>
+                    <label id="computerButtonLabel" for="computerButton">Projects</label>
+                </button>
+                <button id="documentButton" class="show dockIconButton" data-target="documentWindow">
+                    <img id="documentIcon" class="dockIconImage" src="images/document_icon.png"/>
+                    <label id="documentButtonLabel" for="documentButton">About</label>
+                </button>
+                <button id="folderButton" class="show dockIconButton" data-target="folderDisplay">
+                    <img id="folderIcon" class="dockIconImage" src="images/folder_icon.png"/>
+                    <label id="folderButtonLabel" for="folderButton">Files</label>
+                </button>
+                <button id="globeButton" class="show dockIconButton" data-target="globeDisplay">
+                    <img id="globeIcon" class="dockIconImage" src="images/globe_icon.png"/>
+                    <label id="globeButtonLabel" for="globeButton">Web</label>
+                </button>
             </nav>
         </div>
     </body>

@@ -1,10 +1,12 @@
 .window {
     background-color: #D3D3D3;
-    border: 2px solid #D3D3D3;
+    padding: 4px;
+    border: 1px solid black;
+    top: 40px;
+    left: 0;
     position: absolute;
     display: none;
     box-sizing: border-box;
-    box-shadow: -8px 8px black;
     width: 500px;
     height: 600px;
     z-index: 1;
@@ -87,7 +89,6 @@
     text-align: center;
     background-color: white;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
 

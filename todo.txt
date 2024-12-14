@@ -1,0 +1,21 @@
+****THINGS LEFT TO DO ON THE WEBSITE****
+
+> Add projects page (shouldn't this be under the folder icon?)
+
+> Clean up about page (add visuals to make this look more like a retro text editor?)
+
+> Add status bar clock and maybe some other stuff up there.
+
+> Add reactive layout so that it looks good on phones/small screens
+
+> Add maximize button functionality
+
+> Figure out what the home screen will look like
+
+> Will there be a playable game?
+
+> Will there be functional web searching?
+
+> Will there be a power off button?
+
+> Will there be an interactive terminal?
